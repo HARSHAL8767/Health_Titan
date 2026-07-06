@@ -1,0 +1,25 @@
+from fastapi import FastAPI
+from pydantic import BaseModel
+from typing import list 
+
+app=FastAPI()
+
+class signup(BaseModel):
+
+    username:str
+    email:str
+    password:str
+    c_password:str
+
+user:list[signup]=[]
+
+@app.get("/signupapi")
+def user_signup():
+    return { user }
+
+@app.post("/signupapi")
+def add_user(users:BaseModel):
+    users.append(user)
+    return{"USER ADDED SUCCESFULLY:-":user}
+
+
